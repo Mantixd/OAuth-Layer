@@ -1,0 +1,21 @@
+﻿@model OAuth_Layer.Models.Login
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="login">
+  <h1>Login</h1>
+  <form asp-action="Index">
+    <p><input type="text" name="login" placeholder="Username" asp-for="username"></p>
+    <p><input type="password" name="password" placeholder="Password" asp-for="password"></p>
+    <p class="submit"><input type="submit" name="commit" value="Login"></p>
+  </form>
+</div>
+@{
+    if (TempData["msg"]!=null)
+    {
+    <script>
+                alert('@TempData["msg"]')
+    </script>
+    }
+}

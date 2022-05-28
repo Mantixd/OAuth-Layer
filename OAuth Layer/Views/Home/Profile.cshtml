@@ -1,0 +1,10 @@
+﻿@model OAuth_Layer.Models.UserData
+@{
+    ViewData["Title"] = "Profile Page";
+}
+@{
+    var clientData = ViewData["clientData"]
+        as OAuth_Layer.Models.UserData;
+}
+
+<div>Welcome @clientData.firstname</div>
