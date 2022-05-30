@@ -7,4 +7,8 @@
         as OAuth_Layer.Models.UserData;
 }
 
-<div>Welcome @clientData.firstname</div>
+@if (clientData != null) {
+    <div>Welcome @clientData.firstname</div>
+} else {
+    <div>Unauthorized</div>
+}
