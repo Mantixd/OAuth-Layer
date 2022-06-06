@@ -106,7 +106,7 @@ namespace OAuth_Layer.Controllers
             using (var httpClient = new HttpClient())
             {
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                using (var response = await httpClient.GetAsync("https://localhost:7290/Profile?userid=" + Convert.ToInt32(userid)+"")) // change API URL to yours 
+                using (var response = await httpClient.GetAsync("https://localhost:7290/Profile?userid=" + Convert.ToInt32(userid)+""))
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
@@ -160,9 +160,10 @@ namespace OAuth_Layer.Controllers
 
                 con.Close();
             }
-            if (userid == "")
+            if (userid == "0")
             {
-                return Error();
+                ViewData["errorMessage"] = "Invalid username and password.";
+                return View("Index");
             } else
             {
                 var claims = new[] {

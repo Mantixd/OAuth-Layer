@@ -9,13 +9,14 @@
     <p><input type="text" placeholder="Username" asp-for="username"></p>
     <p><input type="password" placeholder="Password" asp-for="password"></p>
     <p class="submit"><input type="submit" name="commit" value="Login"></p>
+    <p style="font-color:red;" class="UserNotExists">@ViewData["errorMessage"]</p>
   </form>
 </div>
 @{
     if (TempData["msg"]!=null)
     {
     <script>
-                alert('@TempData["msg"]')
+        alert('@TempData["msg"]')
     </script>
     }
 }
